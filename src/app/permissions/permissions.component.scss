@@ -1,0 +1,44 @@
+.permissions-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.selection-lists {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    mat-list {
+        min-height: 250px;
+        max-height: 250px;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
+        overflow: auto;
+    }
+}
+
+.selection-list {
+    width: 50%;
+    margin: 10px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.permission-action {
+    cursor: pointer;
+}
+
+.permission-action.add {
+    color: green;
+}
+
+.permission-action.remove {
+    color: red;
+}
+
+.back-button {
+    width: 100%;
+    text-align: left;
+}

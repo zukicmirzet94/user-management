@@ -1,0 +1,19 @@
+{
+    "development": {
+      "username": "user",
+      "password": "123456",
+      "database": "user_management",
+      "host": "127.0.0.1",
+      "port": "8889",
+      "dialect": "mysql",
+      "secret": "SECRET_KEY"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "secret": "SECRET_KEY"
+    }
+}  

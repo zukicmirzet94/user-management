@@ -1,0 +1,53 @@
+<div *ngIf="!isLoadingData" class="table-block">
+    <div class="header-table-block">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="searchValue" (keyup)="search()" #input>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="createUser()"> Create User </button>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef style="width: 250px;"></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" style="margin-right: 15px;" (click)="editUser(element)"> Edit
+                </button>
+                <button mat-raised-button color="primary" style="margin-right: 15px;" (click)="assignPermissions(element)"> Assigne
+                </button>
+                <button mat-raised-button color="warn" (click)="deleteUser(element)"> Delete </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="totalUsers"
+        (page)="changePage($event)">
+    </mat-paginator>
+</div>

@@ -1,0 +1,29 @@
+<div class="permissions-block">
+    <div class="back-button">
+        <button mat-raised-button color="primary" (click)="backToList()"> Back to
+            list</button>
+    </div>
+    <h1> Permissions </h1>
+    <div class="selection-lists">
+        <div class="selection-list">
+            <h3> Assigned Permissions </h3>
+            <mat-list role="list" class="permissions-list">
+                <mat-list-item role="listitem" *ngFor="let assignedPermission of assignedPermissions">
+                    {{assignedPermission.code}}
+                    <mat-icon class="permission-action remove" (click)="unassignePermission(assignedPermission)">
+                        remove_circle</mat-icon>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="selection-list">
+            <h3> Unassigned Permissions </h3>
+            <mat-list role="list" class="permissions-list">
+                <mat-list-item role="listitem" *ngFor="let unassignedPermission of unassignedPermissions">
+                    {{unassignedPermission.code}}
+                    <mat-icon class="permission-action add" (click)="assignePermission(unassignedPermission)">add_circle
+                    </mat-icon>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+</div>
